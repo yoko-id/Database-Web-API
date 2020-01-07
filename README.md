@@ -168,7 +168,7 @@ define('__API_DATASETS__', serialize(array(
     ),
 )));
 
-/================================================================
+//================================================================
 ```
 Retrieving the contents of the table history within this dataset as JSON would be accomplished with a request for /facility-inspections/history.json. Note that it is the name of the dataset (facility-inspections) and not the name of the database (inspections) that is specified in the URL.
 
