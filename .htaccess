@@ -24,6 +24,11 @@
     RewriteRule ^(config|composer|docs|.*\.([Hh][Tt][Aa])).* %{ENV:CWD}index.php [L] # Deny access
     RewriteRule ^(vendor|hooks|plugins|logs|screenshot|screenshots|screens|docs|documentation|clients)/((.*)\.php)?$ %{ENV:CWD}index.php [L] # Forbidden
 
+	#1 Redirect rule to convert _ to -
+	RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s/+(.*?)_+[_-]*(.+?)\sHTTP [NC]
+	RewriteRule ^ /%1-%2 [L,NE,R=302]
+
+	
 	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_FILENAME} !-d
 	RewriteRule . %{ENV:CWD}index.php [L,QSA]
